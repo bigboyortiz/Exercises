@@ -7,20 +7,39 @@ package abstractionexercise;
 public class AbstractionExercise {
 
     public static void main (String args[]) {
-        Entity e = create(1, "hehe", 40);
+        AbstractionExercise ae = new AbstractionExercise();
+        
+        Entity e = ae.create(2, "bdnwdk", 1000);
         
         e.greet();
         e.attack();
     }
     
-    public static Entity create(int id, String name, int power) {
-        MageKnight w = new MageKnight();
+    public Entity create(int id, String name, int power) {
         
-        w.setId(id);
-        w.setName(name);
-        w.setPower(power);
-        
-        return w;
+        if (id == 0) {
+            Entity e = new Warrior();
+            e.setName(name);
+            e.setPower(power);
+            return e;
+        } else if (id == 1) {
+            Entity e = new Wizard();
+            e.setName(name);
+            e.setPower(power);
+            return e;
+        } else if (id == 2) {
+            Entity e = new Merchant();
+            e.setName(name);
+            e.setPower(power);
+            return e;
+        } else if (id == 4) {
+            Entity e = new MageKnight();
+            e.setName(name);
+            e.setPower(power);
+            return e;
+        } else {
+            return null;
+        }
     }
     
 }
